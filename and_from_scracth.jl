@@ -3,8 +3,6 @@ using Statistics: mean
 
 @info "Preparing data and creating model"
 # Inputs
-# I'm using the columns as inputs because is more easy to create batches and
-# it's also the way Flux uses data.
 x = [0 0 1 1;
      0 1 0 1]
 
@@ -24,9 +22,8 @@ W = rand(1,2)   # 2-inputs, 1-output
 b = rand(1,1)
 model(x) = σ.(W*x .+ b)
 
-# As a cost function we'll use mean((ŷ-y)²) where `y` is the training output
-# data and `ŷ` is the prediction. However, here we are intesrest in the
-# derivative of the cost function.
+# As a cost function we'll use mean((ŷ-y)²) where `y` is the training output
+# data and `ŷ` is the prediction.
 
 # Training
 for epoch in 1:500
